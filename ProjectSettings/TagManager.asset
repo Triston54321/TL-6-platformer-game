@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - Bat
+  - myGold
   layers:
   - Default
   - TransparentFX

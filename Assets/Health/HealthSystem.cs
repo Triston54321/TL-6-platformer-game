@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthSystem : MonoBehaviour
 {
     public GameObject[] hearts;
     private int life;
     private bool dead;
+
+
 
     private void Start()
     {
@@ -20,7 +23,9 @@ public class HealthSystem : MonoBehaviour
     {
         if(dead == true)
         {
-            //will need a game over menu with restart?
+            //Time.timeScale = 0f;
+            SceneManager.LoadScene("GameOver");
+
         }
     }
 

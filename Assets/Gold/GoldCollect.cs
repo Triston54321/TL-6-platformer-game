@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GoldCollect : MonoBehaviour
 {
@@ -15,6 +16,16 @@ public class GoldCollect : MonoBehaviour
         GoldCounter.text = "Gold: " + GoldAmount;
         
     }
+
+    void Update()
+    {
+        if (GoldAmount == 10)
+        {
+            SceneManager.LoadScene("GameOver");
+
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D myGold)
     {
