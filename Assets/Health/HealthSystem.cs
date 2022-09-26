@@ -9,11 +9,12 @@ public class HealthSystem : MonoBehaviour
     private int life;
     private bool dead;
 
-
+ 
 
     private void Start()
     {
         life = hearts.Length;
+
     }
 
 
@@ -43,6 +44,7 @@ public class HealthSystem : MonoBehaviour
                 if (life < 1)
                 {
                     dead = true;
+                 
                 }
 
             }

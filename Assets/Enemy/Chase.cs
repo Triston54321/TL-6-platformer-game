@@ -6,16 +6,17 @@ public class Chase : MonoBehaviour
 {
     public GameObject player;
     public float speed;
-  
+
+    public AudioSource source;
 
     private float distance;
 
-
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        source = GetComponent<AudioSource>();   
     }
 
     // Update is called once per frame
@@ -30,7 +31,9 @@ public class Chase : MonoBehaviour
         if(distance < 4)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-  
+            if(distance <= 1) {
+                source.Play();
+            }
         }
     
     }

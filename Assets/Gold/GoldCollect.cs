@@ -5,16 +5,20 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GoldCollect : MonoBehaviour
-{
 
+{ 
+   
     public Text GoldCounter;
     private int GoldAmount;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         GoldAmount = 0;
         GoldCounter.text = "Gold: " + GoldAmount;
-        
+      
     }
 
     void Update()
@@ -33,8 +37,11 @@ public class GoldCollect : MonoBehaviour
         {
             GoldAmount += 1;
             Destroy(myGold.gameObject);
-            GoldCounter.text = "Gold: " + GoldAmount;
+           
+           
 
+            GoldCounter.text = "Gold: " + GoldAmount;
+         
         }
     }
 
