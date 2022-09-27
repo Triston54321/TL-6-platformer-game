@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator animator;
+
     private Rigidbody2D rb2D;
 
     private float moveSpeed;
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
         moveVertical = Input.GetAxisRaw("Vertical");
         if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.D)))
         {
@@ -55,6 +58,18 @@ public class PlayerController : MonoBehaviour
             rb2D.AddForce(new Vector2(0f, moveVertical * jumpForce), ForceMode2D.Impulse);
          
             isJumping = true;
+            animator.SetBool("Jumping", true);
+        }
+
+        if(moveHorizontal > 0)
+        {
+            gameObject.transform.localScale = new Vector3 ((float)0.5864107, (float)0.6584303, 1);
+            //gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+        if (moveHorizontal < 0)
+        {
+            gameObject.transform.localScale = new Vector3 ((float)-0.5864107, (float)0.6584303, 1);
+            //gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 
@@ -63,6 +78,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Platform")
         {
             isJumping = false;
+            animator.SetBool("Jumping", false);
         }
 
     }
