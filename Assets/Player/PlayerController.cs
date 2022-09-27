@@ -14,14 +14,14 @@ public class PlayerController : MonoBehaviour
     private float moveHorizontal;
     private float moveVertical;
 
-    private AudioSource source;
+    //private AudioSource source;
    
 
     // Start is called before the first frame update
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        source = GetComponent<AudioSource>();
+        //source = GetComponent<AudioSource>();
 
         moveSpeed = 3f;
         jumpForce = 70f;
@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
         moveVertical = Input.GetAxisRaw("Vertical");
+      
+      /*  
         if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.D)))
         {
             source.Play();
@@ -43,6 +45,8 @@ public class PlayerController : MonoBehaviour
         {
             source.Stop();
         }
+      */
+
     }
 
     private void FixedUpdate()

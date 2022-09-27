@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GoldCollect : MonoBehaviour
 
-{ 
-   
+{
+    public AudioSource source;
     public Text GoldCounter;
     private int GoldAmount;
 
@@ -18,7 +18,7 @@ public class GoldCollect : MonoBehaviour
     {
         GoldAmount = 0;
         GoldCounter.text = "Gold: " + GoldAmount;
-      
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -37,8 +37,8 @@ public class GoldCollect : MonoBehaviour
         {
             GoldAmount += 1;
             Destroy(myGold.gameObject);
-           
-           
+
+            source.Play();
 
             GoldCounter.text = "Gold: " + GoldAmount;
          
