@@ -28,7 +28,7 @@ public class Chase : MonoBehaviour
 
 
         //bat will move to player if close
-        if(distance < 4)
+        if(distance < 6)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
             if(distance <= 1) {
